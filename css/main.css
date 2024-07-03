@@ -171,7 +171,7 @@ img.Poster {
     align-items: start;
     flex-direction: column;
     width: 100%;
-    line-height: 2;
+    line-height: 2vw;
 }
 p.Year {
     letter-spacing: 2px;
@@ -234,7 +234,7 @@ span.RatingBlankBg {
 span.RateBg {
     width: 2.5rem;
     height: 2.5rem;
-    background-color: #D1D431;
+    /* background-color: #2ECC71; */
 }
 span.RatingCover {
     width: 2.11rem;
@@ -290,4 +290,14 @@ button.BtnPLayTariler > i{
 }
 button.BtnPLayTariler:hover{
     color: #fff;
+}
+p.Plot {
+    position: absolute;
+    bottom: 16%;
+    color: #ffffff96;
+    margin: 0;
+    padding: 0 1.5rem;
+    font-family: 'Quicksand';
+    font-weight: 600;
+    font-size: 1vw;
 }

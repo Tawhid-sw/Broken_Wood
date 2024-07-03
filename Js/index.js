@@ -50,13 +50,42 @@ const Automate = (Elements , ClassName , Append) =>{
 // Rating Color as Value
 const RatingColor = (Class , Value) =>{
   let Color ;
-  
-  if(Value != 8){
-    // alert("! All Ok")
+  switch(true){
+    case Value < 10:
+      Color = '#F7CAC9'; // Light Salmon
+      break;
+    case Value < 20:
+      Color = '#E08B8B'; // Light Coral
+      break;
+    case Value < 30:
+      Color = '#D3D3D3'; // Light Gray
+      break;
+    case Value < 40:
+      Color = '#BDBDBD'; // Silver
+      break;
+    case Value < 50:
+      Color = '#A9E2A9'; // Pale Green
+      break;
+    case Value < 60:
+      Color = '#7DB38E'; // Sea Green
+      break;
+    case Value < 70:
+      Color = '#43AA8B'; // Darker Teal
+      break;
+    case Value < 80:
+      Color = '#17A2B8'; // Medium Turquoise
+      break;
+    case Value < 90:
+      Color = '#2ECC71'; // Emerald Green
+      break;
+    case Value === 100:
+      Color = '#1A759F'; // Dark Sapphire
+      break;
+      default:
+        Color = '#2ECC71'; // Defult Color
   }
-  else {
-    console.log(Value);
-  }
+  Class.style.background = `conic-gradient(${Color} ${Value}% , rgb(0 0 0 / 0%) 0%)`;
+
 }
 
 // Fething Gners
@@ -156,7 +185,10 @@ const Trending = async () =>{
         Event.stopPropagation();
         await Trailer(Data.media_type , Data.id);
       }
-    //console.log(Data);
+      const Plot = Automate('p' , 'Plot' , Item)
+      Plot.textContent = Data.overview.substring(0 , 148) + ' ...';
+      Plot.textContent.length >= 148 ? Plot.style.bottom = '16%' : Plot.style.bottom = '20%';
+    console.log(Data);
     Carousel_Inner.children[0].classList.add('active');
   }
 }
