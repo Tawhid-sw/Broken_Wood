@@ -1,0 +1,31 @@
+if(Value.textContent < 10){
+      Color = '#F44336'; // Firebrick
+    }
+    else if(Value.textContent > 20){
+      Color = '#E06C75'; // Carnation Pink
+    }
+    else if(Value.textContent > 30){
+      Color = '#D696AB'; // Lavender Blush
+    }
+    else if(Value.textContent > 40){
+      Color = '#C7BEBA'; // Light Gray
+    }
+    else if(Value.textContent > 50){
+      Color = '#A0BECB'; // Sky Blue
+    }
+    else if(Value.textContent > 60){
+      Color = '#79D1CF'; // Light Sea Green
+    }
+    else if(Value.textContent > 70){
+      Color = '#4D96BF'; // Cadet Blue
+    }
+    else if(Value.textContent > 80){
+      Color = '#29ABCA'; // Dodger Blue
+    }
+    else if(Value.textContent > 90){
+      Color = '#17A2B8'; // Medium Turquoise
+    }
+    else if(Value.textContent > 100){
+      Color = '#2ECC71'; // Emerald Green
+     //classes.style.background = Color;
+    console.log(classes)
