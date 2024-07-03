@@ -1,0 +1,293 @@
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Alegreya+Sans+SC:ital,wght@0,100;0,300;0,400;0,500;0,700;0,800;0,900;1,100;1,300;1,400;1,500;1,700;1,800;1,900&family=Jost:ital,wght@0,100..900;1,100..900&display=swap');
+
+:root{
+  --P1 : 1rem;
+  --color-white: #fff;
+  --color-black: #000;
+  --text-mute : #ffffffc7;
+  --text-mute-2nd : #ffffff99;
+  --text-success : #75b798;
+  --Background-dark: #212529;
+  --Background-2nd : #1d1b1f;
+  --Background-primary : #0d6efd;
+  --Background-secondary : #6c757d;
+  --Background-sky : #b49fe5;
+  --Border-25 : 0.25rem;
+  --QuickSand-family : "Quicksand", sans-serif;
+}
+* , 
+*::before , 
+::after {
+    max-width: 100%;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+a , li {
+    list-style: none;
+    text-decoration: none;
+    color: var(--color-white);
+}
+
+/* === BODY === */
+
+body{
+    display: block;
+    width: 100%;
+    padding: var(--P1);
+    background-color: var(--Background-dark);
+}
+/* === NAV === */
+nav{
+    width: 100%;
+    height: 3rem;
+    position: sticky;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.5rem;
+    color: var(--color-white);
+    border-bottom: 1px solid;
+}
+h1.Nav-title {
+    font-family: 'Quicksand';
+    font-weight: bolder;
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+nav ul.Nal-Btns{
+    max-width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2rem;
+    margin: 0;
+}
+nav ul.Nal-Btns li.Nav-Btn{
+    font-family: var(--QuickSand-family);
+    padding: 0.5rem;
+    cursor: pointer;
+    font-weight: 600;
+    transition: all 0.10s ease-in;
+}
+nav ul.Nal-Btns li.Nav-Btn:hover{
+    filter: brightness(0.77);
+}
+span.Acc-Lan-search{
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    gap: 1.5rem;
+}
+button.Search-Btn , button.Translate , button.Login {
+    width: 2.3rem;
+    height: 2.3rem;
+    border-radius: 50%;
+    font-size: 1.1rem;
+    position: relative;
+    border: none;
+    transition: 0.20s;
+}
+button.Translate{
+    background: var(--bs-blue);
+    color: var(--color-white);
+}
+button.Login{
+    background: var(--bs-gray-700);
+    color: var(--color-white);
+}
+button.Search-Btn{
+    background: var(--bs-warning);
+    color: var(--color-black);
+}
+
+span.Acc-Lan-search > button:hover{
+    filter: brightness(0.77);
+}
+.bi::before, [class*=" bi-"]::before, [class^=bi-]::before{
+    font-weight: bolder !important;
+}
+
+/* === MAIN === */
+main{
+    display: block;
+    width: 100%;
+    margin-top: 1rem;
+}
+main .Slider_Card{
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 1rem;
+    height: 22rem;
+    overflow: hidden;
+}
+.Slider_Card .slider{
+    width: 60%;
+    height: 22rem;
+    /* background-color: red; */
+    border-radius: var(--Border-25);
+    overflow: hidden;
+    position: relative;
+}
+.Slider_Card .cards{
+    width: 40%;
+    height: 22rem;
+    background-color: blue;
+    overflow: hidden;
+    border-radius: var(--Border-25);
+}
+i#Prev , i#Next {
+    font-size: 2.5rem;
+}
+img.BackdropImg{
+    max-width: 100%;
+    aspect-ratio: 2 / 1;
+    object-fit: cover;
+    filter: blur(2px) brightness(0.5);
+    scale: 1.01;
+}
+.Poster_Info {
+    display: flex;
+    align-items: center;
+    justify-content: left;
+    gap: 0.7rem;
+    position: absolute;
+    padding: 0.5rem;
+    top: 0;
+    bottom: 20%;
+    width: 100%;
+    z-index: 0;
+}
+img.Poster {
+    width: calc(16% + 2vw);
+    border-radius: 0.25rem;
+    margin-left: 2%;
+}
+.Info {
+    display: flex;
+    align-items: start;
+    flex-direction: column;
+    width: 100%;
+    line-height: 2;
+}
+p.Year {
+    letter-spacing: 2px;
+    font-family: "Alegreya Sans SC", sans-serif;
+    margin: 0;
+    color: #ffffffab;
+    font-weight: 600;
+}
+h2.Title {
+    font-size: 2.66vw;
+    color: var(--color-white);
+    font-weight: 500;
+    font-family: 'Quicksand';
+    letter-spacing: 2px;
+    padding-top: 0.5rem;
+}
+ul.Genres {
+    margin: 0;
+    display: flex;
+    align-items: center;
+    justify-content: left;
+    width: 100%;
+    gap: 0.77rem;
+    padding: 0.5rem 0;
+}
+ul.Genres > li.Genre {
+    font-family: "Alegreya Sans SC", sans-serif;
+    font-size: 1.01rem;
+    font-weight: 400;
+    color: #ffffffbd;
+    list-style: disc;
+    list-style-position: inside;
+}
+ul.Genres > li.Genre:nth-child(1){
+    list-style: none;
+}
+.Rate_Voters_Trailer {
+    width: 100%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 1rem;
+}
+.RatingBar , span.RatingBlankBg , span.RateBg , span.RatingCover {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+}
+.RatingBar {
+    width: 3rem;
+    height: 3rem;  
+    background: #081C22;
+}
+span.RatingBlankBg {
+    width: 2.5rem;
+    height: 2.5rem;
+    background: #fff;
+}
+span.RateBg {
+    width: 2.5rem;
+    height: 2.5rem;
+    background-color: #D1D431;
+}
+span.RatingCover {
+    width: 2.11rem;
+    height: 2.11rem;
+    background-color: #081C22;
+}
+p.Rate {
+    color: var(--color-white);
+    margin: 0;
+    font-size: 0.9rem;
+    font-weight: 700;
+    margin-left: -8px;
+    margin-bottom: -5px;
+    font-family: var(--QuickSand-family);
+    position: relative;
+}
+p.Rate::after {
+    content: '%';
+    position: absolute;
+    font-size: 0.66rem;
+    top: -3px;
+    right: -10px;
+}
+span.Voters {
+    font-size: 1.1rem;
+    color: var(--color-white);
+    letter-spacing: 2px;
+    font-family: 'Quicksand';
+    font-weight: 400;
+}
+span.Voters > i {
+    font-size: 1.55rem;
+    font-weight: 100;
+}
+button.BtnPLayTariler {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    border: none;
+    background: none;
+    color: #ffffff94;
+    letter-spacing: 1px;
+    font-family: 'Quicksand';
+    font-weight: 400;
+    padding-top: 5px;
+    transition: .2s ease-in;
+    position: relative;
+    z-index: 1;
+    cursor: pointer;
+}
+button.BtnPLayTariler > i{
+    font-weight: 100;
+}
+button.BtnPLayTariler:hover{
+    color: #fff;
+}
