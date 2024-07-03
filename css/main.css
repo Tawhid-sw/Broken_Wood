@@ -195,7 +195,7 @@ ul.Genres {
     justify-content: left;
     width: 100%;
     gap: 0.77rem;
-    padding: 0.5rem 0;
+    padding: 0.5rem 0 0.7rem 0;
 }
 ul.Genres > li.Genre {
     font-family: "Alegreya Sans SC", sans-serif;
