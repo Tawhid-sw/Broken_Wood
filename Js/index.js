@@ -1,4 +1,4 @@
-// alert('Hi')
+alert('Hi')
 
 // For Background Img
 // const BgImgData = async (ID) =>{
