@@ -1,4 +1,4 @@
-alert('Hi')
+// alert('Hi')
 
 // For Background Img
 // const BgImgData = async (ID) =>{
@@ -7,7 +7,7 @@ alert('Hi')
 
 // }
 
-// Fetch Data
+// Fetch Data Trending
 const FetchData = async (Url) =>{
   try{
     const REsp = await fetch(Url);

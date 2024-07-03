@@ -1,0 +1,27 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Git Commit",
+            "type": "shell",
+            "command": "git",
+            "args": ["add", "."],
+            "problemMatcher": [],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "dependsOn": [
+                "Git Commit - Message"
+            ]
+        },
+        {
+            "label": "Git Commit - Message",
+            "type": "shell",
+            "command": "git",
+            "args": ["commit", "-m", "Auto commit"],
+            "problemMatcher": []
+        }
+    ]
+}
+
