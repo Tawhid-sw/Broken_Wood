@@ -38,11 +38,57 @@ const Trailer = async (Media_Type , ID) =>{
 const WiondowOpen = (Url) =>{
   window.open(Url, '_blank');
 }
+
+// Creat Element By Data
 const Automate = (Elements , ClassName , Append) =>{
   const Element = document.createElement(Elements);
   Element.className = ClassName;
   Append.appendChild(Element);
   return Element;
+}
+
+// Rating Color as Value
+const Rate = (Class , Value) =>{
+  const Classes = document.querySelectorAll(`.${Class}`);
+  Classes.forEach((Class) =>{
+    // Defult Color
+    let Color = '#F44336';
+    switch(Color){
+      case Value < 10 :
+        Color = '#F44336';
+      break;
+      case Value < 20 :
+        Color = '#E06C75';
+      break;
+      case Value < 30 : 
+        Color = '#D696AB';
+      break;
+      case Value < 40 : 
+        Color = '#D696AB';
+      break;
+      case Value < 50 : 
+        Color = '#D696AB';
+      break;
+      case Value < 60 : 
+        Color = '#D696AB';
+      break;
+      case Value < 70 : 
+        Color = '#D696AB';
+      break;
+      case Value < 80 : 
+        Color = '#D696AB';
+      break;
+      case Value < 90 : 
+        Color = '#D696AB';
+      break;
+      case Value < 100 : 
+        Color = '#D696AB';
+      break;
+      default :
+      Color = '#D696AB';
+    }
+    console.log(Color)
+  })
 }
 
 // Fething Gners
@@ -60,11 +106,9 @@ const FetchGner = async (Media_Type , ID) =>{
     //console.log(FindNameById[0].name)
     return FindNameById.length >= 0 ? FindNameById[0].name : null;
 }
-// FetchGner('tv' , 10765)
 
 const Trending = async () =>{
   const Trend = await FetchData(`https://api.themoviedb.org/3/trending/all/day?api_key=${key}`)
-  //console.log(Data.results);
   for(const Data of Trend.results ){
     // Backdrop Image collections api
     const BgImgs = await FetchData(`https://api.themoviedb.org/3/${Data.media_type}/${Data.id}/images?api_key=${key}`);

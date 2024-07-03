@@ -32,7 +32,7 @@
             "label": "Git Commit",
             "type": "shell",
             "command": "git",
-            "args": ["commit", "-m", "Auto commit"],
+            "args": ["commit", "-m", "This is New commit"],
             "problemMatcher": [],
             "dependsOn": ["Git Add"],
             "presentation": {
