@@ -6,7 +6,13 @@
             "type": "shell",
             "command": "git",
             "args": ["pull"],
-            "problemMatcher": []
+            "problemMatcher": [],
+            "presentation": {
+                "reveal": "never",
+                "panel": "dedicated",
+                "showReuseMessage": false,
+                "clear": true
+            }
         },
         {
             "label": "Git Add",
@@ -14,7 +20,13 @@
             "command": "git",
             "args": ["add", "."],
             "problemMatcher": [],
-            "dependsOn": ["Git Pull"]
+            "dependsOn": ["Git Pull"],
+            "presentation": {
+                "reveal": "never",
+                "panel": "dedicated",
+                "showReuseMessage": false,
+                "clear": true
+            }
         },
         {
             "label": "Git Commit",
@@ -22,7 +34,13 @@
             "command": "git",
             "args": ["commit", "-m", "Auto commit"],
             "problemMatcher": [],
-            "dependsOn": ["Git Add"]
+            "dependsOn": ["Git Add"],
+            "presentation": {
+                "reveal": "never",
+                "panel": "dedicated",
+                "showReuseMessage": false,
+                "clear": true
+            }
         },
         {
             "label": "Git Push",
@@ -30,7 +48,13 @@
             "command": "git",
             "args": ["push"],
             "problemMatcher": [],
-            "dependsOn": ["Git Commit"]
+            "dependsOn": ["Git Commit"],
+            "presentation": {
+                "reveal": "never",
+                "panel": "dedicated",
+                "showReuseMessage": false,
+                "clear": true
+            }
         }
     ]
 }
