@@ -48,47 +48,15 @@ const Automate = (Elements , ClassName , Append) =>{
 }
 
 // Rating Color as Value
-const Rate = (Class , Value) =>{
-  const Classes = document.querySelectorAll(`.${Class}`);
-  Classes.forEach((Class) =>{
-    // Defult Color
-    let Color = '#F44336';
-    switch(Color){
-      case Value < 10 :
-        Color = '#F44336';
-      break;
-      case Value < 20 :
-        Color = '#E06C75';
-      break;
-      case Value < 30 : 
-        Color = '#D696AB';
-      break;
-      case Value < 40 : 
-        Color = '#D696AB';
-      break;
-      case Value < 50 : 
-        Color = '#D696AB';
-      break;
-      case Value < 60 : 
-        Color = '#D696AB';
-      break;
-      case Value < 70 : 
-        Color = '#D696AB';
-      break;
-      case Value < 80 : 
-        Color = '#D696AB';
-      break;
-      case Value < 90 : 
-        Color = '#D696AB';
-      break;
-      case Value < 100 : 
-        Color = '#D696AB';
-      break;
-      default :
-      Color = '#D696AB';
-    }
-    console.log(Color)
-  })
+const RatingColor = (Class , Value) =>{
+  let Color ;
+  
+  if(Value != 8){
+    // alert("! All Ok")
+  }
+  else {
+    console.log(Value);
+  }
 }
 
 // Fething Gners
@@ -173,6 +141,9 @@ const Trending = async () =>{
       const RatingCover = Automate('span' , 'RatingCover' , RateBg);
       const Rate = Automate('p' , 'Rate' , RatingCover);
       Rate.textContent = Math.floor(Data.vote_average * 10) ;
+      //console.log(Rate.className , Rate.textContent)
+      RatingColor(RateBg , Rate.textContent);
+      //console.log(RateBg.className , Rate.textContent);
       // Voters
       const Voters = Automate('span' , 'Voters' , Rate_Voters_Trailer);
       Voters.innerHTML = '<i class="bi bi-people-fill"></i> ' + Data.vote_count;
