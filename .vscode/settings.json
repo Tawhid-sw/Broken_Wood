@@ -1,14 +1,15 @@
 {
     "multiCommand.commands": [
         {
-            "command": "multiCommand.saveAndCommit",
+            "command": "multiCommand.saveAndGitWorkflow",
             "sequence": [
                 "workbench.action.files.save",
                 {
                     "command": "workbench.action.tasks.runTask",
-                    "args": "Git Commit"
+                    "args": "Git Push"
                 }
             ]
         }
     ]
 }
+

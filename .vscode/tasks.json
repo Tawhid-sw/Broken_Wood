@@ -2,26 +2,35 @@
     "version": "2.0.0",
     "tasks": [
         {
-            "label": "Git Commit",
+            "label": "Git Pull",
+            "type": "shell",
+            "command": "git",
+            "args": ["pull"],
+            "problemMatcher": []
+        },
+        {
+            "label": "Git Add",
             "type": "shell",
             "command": "git",
             "args": ["add", "."],
             "problemMatcher": [],
-            "group": {
-                "kind": "build",
-                "isDefault": true
-            },
-            "dependsOn": [
-                "Git Commit - Message"
-            ]
+            "dependsOn": ["Git Pull"]
         },
         {
-            "label": "Git Commit - Message",
+            "label": "Git Commit",
             "type": "shell",
             "command": "git",
             "args": ["commit", "-m", "Auto commit"],
-            "problemMatcher": []
+            "problemMatcher": [],
+            "dependsOn": ["Git Add"]
+        },
+        {
+            "label": "Git Push",
+            "type": "shell",
+            "command": "git",
+            "args": ["push"],
+            "problemMatcher": [],
+            "dependsOn": ["Git Commit"]
         }
     ]
 }
-
