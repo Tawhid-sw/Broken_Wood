@@ -1,12 +1,5 @@
 // alert('Hi')
 
-// For Background Img
-// const BgImgData = async (ID) =>{
-//   Url = `https://api.themoviedb.org/3/${ID}/images?api_key=${key}`;
-//   const Response = await fetch(Url);
-
-// }
-
 // Fetch Data Trend
 const FetchData = async (Url) =>{
   try{
