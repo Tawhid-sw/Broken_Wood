@@ -7,7 +7,7 @@
 
 // }
 
-// Fetch Data Trending
+// Fetch Data Trend
 const FetchData = async (Url) =>{
   try{
     const REsp = await fetch(Url);
