@@ -8,7 +8,7 @@
             "args": ["pull"],
             "problemMatcher": [],
             "presentation": {
-                "reveal": "always",
+                "reveal": "never",
                 "panel": "dedicated",
                 "showReuseMessage": false,
                 "clear": true
