@@ -228,6 +228,7 @@ span.RateBg {
     width: 2.5rem;
     height: 2.5rem;
     /* background-color: #2ECC71; */
+    position: relative;
 }
 span.RatingCover {
     width: 2.11rem;
@@ -308,9 +309,69 @@ p.Plot {
     justify-content: space-between;
     border-radius: 0.25rem;
 }
+.Gnrs-Hader{
+    display: inline-flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    padding: 0 0.5rem;
+    height: 3rem;
+}
+.Title_Btns{
+    display: inline-flex;
+    align-items: center;
+    justify-content: flex-start;
+}
 h5.Gners-Title {
     color: var(--color-white);
     font-family: 'Quicksand';
     margin: 0;
     letter-spacing: 2px;
+}
+span.Gnrs-Btns {
+    width: 7rem;
+}
+span.Gnrs-Btns > button.G_Btns {
+    border: none;
+    outline: none;
+    background: no-repeat;
+    color: #ffffff47;
+    font-size: medium;
+    font-weight: bolder;
+    -webkit-text-stroke: thin;
+    transition: .30s linear;
+    padding: 0.2rem;
+}
+span.Gnrs-Btns > button.G_Btns:hover{
+    color: #fff;
+}
+span.Gnrs-Btns > button.G_Btns.G-Left {
+    margin-left: 0.5rem;
+}
+span.Gnrs-Btns > button.G_Btns.G-Right {
+    margin-left: 0.5rem;
+}
+span.Gnrs-Btns > button.G_Btns.G-Left:hover{
+    margin-left: 0.3rem;
+}
+span.Gnrs-Btns > button.G_Btns.G-Right:hover{
+    margin-left: 0.7rem;
+}
+
+button.More {
+    border: none;
+    outline: none;
+    background: none;
+    color: #ffffff9c;
+    font-size: 0.88rem;
+    letter-spacing: 1px;
+    transition: all 0.20s ease;
+    font-weight: 500;
+    font-family: 'Quicksand';
+}
+button.More > i.bi.bi-chevron-right {
+    margin-top: 1px;
+}
+button.More:hover{
+    color: var(--color-white);
 }

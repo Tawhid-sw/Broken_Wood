@@ -1,4 +1,5 @@
 // alert('Hi')
+"use strict";
 
 // Fetch Data Trend
 const FetchData = async (Url) =>{
