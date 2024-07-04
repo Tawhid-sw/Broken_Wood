@@ -20,12 +20,12 @@ const FetchData = async (Url) =>{
 const Trailer = async (Media_Type , ID) =>{
   const YoutubeUrl = `https://www.youtube.com/watch?v`;
   const BaseUrl = `https://api.themoviedb.org/3/`;
-  const FetchTraier = await fetch(`${BaseUrl}/${Media_Type}/${ID}/videos?api_key=${key}`);
+  const FetchTraier = await fetch(`${BaseUrl}/${Media_Type}/${ID}/videos?language=en-US` , options);
   const TrailerData = await FetchTraier.json();
   const FilterTrailer = TrailerData.results.filter(video => video.type === 'Trailer' && video.official == true)
   const FinalTrailer = FilterTrailer.slice(FilterTrailer.length - 1)[0];
   const Youtube = (`${YoutubeUrl}=${FinalTrailer.key}`)
-  // console.log(Youtube);
+  //console.log(FetchTraier);
   WiondowOpen(Youtube)
 }
 const WiondowOpen = (Url) =>{
@@ -181,7 +181,7 @@ const Trending = async () =>{
       const Plot = Automate('p' , 'Plot' , Item)
       Plot.textContent = Data.overview.substring(0 , 148) + ' ...';
       Plot.textContent.length >= 148 ? Plot.style.bottom = '16%' : Plot.style.bottom = '20%';
-    console.log(Data);
+    //console.log(Data);
     Carousel_Inner.children[0].classList.add('active');
   }
 }
