@@ -132,13 +132,6 @@ main .Slider_Card{
     overflow: hidden;
     position: relative;
 }
-.Slider_Card .cards{
-    width: 40%;
-    height: 22rem;
-    background-color: blue;
-    overflow: hidden;
-    border-radius: var(--Border-25);
-}
 i#Prev , i#Next {
     font-size: 2.5rem;
 }
@@ -300,4 +293,11 @@ p.Plot {
     font-family: 'Quicksand';
     font-weight: 600;
     font-size: 1vw;
+}
+.Slider_Card .cards{
+    width: 40%;
+    height: 22rem;
+    overflow: hidden;
+    border-radius: var(--Border-25);
+    border: 1px solid #fff;
 }
