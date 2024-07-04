@@ -118,7 +118,7 @@ main{
 }
 main .Slider_Card{
     display: flex;
-    align-items: baseline;
+    align-items: flex-start;
     justify-content: space-between;
     gap: 1rem;
     height: 22rem;
@@ -299,5 +299,18 @@ p.Plot {
     height: 22rem;
     overflow: hidden;
     border-radius: var(--Border-25);
-    border: 1px solid #fff;
+    background: var(--Background-2nd);
+    padding: 0.5rem;
+}
+.Gners {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-radius: 0.25rem;
+}
+h5.Gners-Title {
+    color: var(--color-white);
+    font-family: 'Quicksand';
+    margin: 0;
+    letter-spacing: 2px;
 }
