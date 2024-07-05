@@ -17,20 +17,6 @@ const FetchData = async (Url) =>{
   }
 }
 
-// Trailer 
-const Trailer = async (Media_Type , ID) =>{
-  const YoutubeUrl = `https://www.youtube.com/watch?v`;
-  const BaseUrl = `https://api.themoviedb.org/3/`;
-  const FetchTraier = await fetch(`${BaseUrl}/${Media_Type}/${ID}/videos?language=en-US` , options);
-  const TrailerData = await FetchTraier.json();
-  const FilterTrailer = TrailerData.results.filter(video => video.type === 'Trailer' && video.official == true)
-  const FinalTrailer = FilterTrailer.slice(FilterTrailer.length - 1)[0];
-  const Youtube = (`${YoutubeUrl}=${FinalTrailer.key}`);
-  WiondowOpen(Youtube);
-}
-const WiondowOpen = (Url) =>{
-  window.open(Url, '_blank');
-}
 
 // Creat Element By Data
 const Automate = (Elements , ClassName , Append) =>{
@@ -38,6 +24,40 @@ const Automate = (Elements , ClassName , Append) =>{
   Element.className = ClassName;
   Append.appendChild(Element);
   return Element;
+}
+
+// Trailer 
+const Trailer = async (Media_Type , ID) =>{
+  const YoutubeUrl = `https://www.youtube.com/watch?v`;
+  const BaseUrl = `https://api.themoviedb.org/3/`;
+  const FetchTraier = await fetch(`${BaseUrl}/${Media_Type}/${ID}/videos?language=en-US` , options);
+  const TrailerData = await FetchTraier.json();
+  const FilterTrailer = TrailerData.results.filter(video => video.type === 'Trailer' && video.official == true);
+  let FinalTrailer;
+  // If Trailer not Found
+  if(FilterTrailer.length == 0){
+    FinalTrailer = 'No Trailer Found';
+    const Ntf = document.createElement('div');
+    Ntf.className = 'not-found-Container';
+    const Ntf_box = Automate('div' , 'Ntf-Box' , Ntf);
+    const Ntf_Icon = Automate('i' , 'bi bi-x-circle' , Ntf_box);
+    const Ntf_Title = Automate('p' , 'Ntf_Title' , Ntf_box);
+    Ntf_Title.textContent = FinalTrailer;
+    const Ntf_Btn = Automate('button' , 'Ntf_Btn' , Ntf_box);
+    Ntf_Btn.onclick = () =>{
+      Ntf.remove();
+    }
+    Ntf_Btn.textContent = 'Go Back';
+    document.body.appendChild(Ntf);
+    console.log(Ntf);
+  } else {
+    FinalTrailer = FilterTrailer.slice(FilterTrailer.length - 1)[0];
+    const Youtube = (`${YoutubeUrl}=${FinalTrailer.key}`);
+    WiondowOpen(Youtube);
+  }
+}
+const WiondowOpen = (Url) =>{
+  window.open(Url, '_blank');
 }
 
 // Rating Color as Value

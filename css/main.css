@@ -39,6 +39,101 @@ body{
     padding: var(--P1);
     background-color: var(--Background-dark);
 }
+
+/* === TRAILER NOT FOUND === */
+.not-found-Container {
+    position: fixed;
+    background: rgb(0 0 0 / 86%);
+    width: 100%;
+    height: 100%;
+    inset: 0;
+    display: grid;
+    place-content: center;
+    align-items: center;
+    z-index: 1;
+    animation: opact 0.20s ease-in;
+}
+@keyframes opact {
+    0%{
+        opacity: 0;
+    }
+    100%{
+        opacity: 1;
+    }
+}
+.Ntf-Box {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    padding: 1rem;
+    width: 30rem;
+    height: 15rem;
+    border-radius: 0.25rem;
+    position: relative;
+    /* box-shadow: 0px 0px 17rem 0px rgb(59 77 108 / 98%); */
+}
+.Ntf-Box::before{
+    content: "";
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url(../images/Ntf-Bg.jpg);
+    background-repeat: no-repeat;
+    object-fit: cover;
+    background-position: center;
+    background-size: cover;
+    filter: brightness(0.44);
+}
+.Ntf-Box > i {
+    font-size: 5vw;
+    color: var(--color-white);
+    font-weight: 200;
+    -webkit-text-stroke: thin;
+    position: relative;
+}
+p.Ntf_Title {
+    font-size: x-large;
+    font-family: 'Quicksand';
+    font-weight: 700;
+    letter-spacing: 1px;
+    position: relative;
+    color: var(--color-white);
+}
+button.Ntf_Btn {
+    border: none;
+    padding: 0.5rem 2.5rem;
+    background: var(--bs-primary);
+    color: var(--color-white);
+    border-radius: 0.25rem;
+    font-size: small;
+    font-weight: 400;
+    font-family: 'Quicksand';
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+}
+button.Ntf_Btn::before {
+    content: "";
+    position: absolute;
+    top: -13px;
+    width: 1rem;
+    transform: rotate(11deg);
+    height: 7rem;
+    background-color: #3083fd;
+    left: -2rem;
+    z-index: -1;
+    transition: 1s ;
+}
+button.Ntf_Btn:hover::before {
+    left: 9rem;
+}
+/* button.Ntf_Btn:hover button.Ntf_Btn::before{
+    left: 5px;
+} */
+
+
 /* === NAV === */
 nav{
     width: 100%;
@@ -320,7 +415,7 @@ img.DefultBg {
     bottom: 0;
     scale: 5;
     z-index: 0;
-    filter: blur(1px) brightness(0.7);
+    filter: blur(2px) brightness(0.7);
 }
 .Gners {
     display: flex;
