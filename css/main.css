@@ -125,15 +125,20 @@ main .Slider_Card{
     overflow: hidden;
 }
 .Slider_Card .slider{
-    width: 60%;
+    width: 70%;
     height: 22rem;
     /* background-color: red; */
     border-radius: var(--Border-25);
     overflow: hidden;
     position: relative;
 }
-i#Prev , i#Next {
+.carousel {
+    position: relative;
+    height: 22rem;
+}
+button#Prev > i, button#Next > i {
     font-size: 2.5rem;
+    transition: all 0.50s cubic-bezier(0.51, 0.12, 0.76, 0.4);
 }
 img.BackdropImg{
     max-width: 100%;
@@ -150,12 +155,13 @@ img.BackdropImg{
     position: absolute;
     padding: 0.5rem;
     top: 0;
-    bottom: 20%;
+    bottom: 0;
+    padding-bottom: 17%;
     width: 100%;
     z-index: 0;
 }
 img.Poster {
-    width: calc(16% + 2vw);
+    width: calc(12% + 2vw);
     border-radius: 0.25rem;
     margin-left: 2%;
 }
@@ -287,7 +293,7 @@ button.BtnPLayTariler:hover{
 }
 p.Plot {
     position: absolute;
-    bottom: 16%;
+    bottom: 30%;
     color: #ffffff96;
     margin: 0;
     padding: 0 1.5rem;
@@ -295,13 +301,26 @@ p.Plot {
     font-weight: 600;
     font-size: 1vw;
 }
+/* == FOR GNERS == */
 .Slider_Card .cards{
-    width: 40%;
+    width: 30%;
     height: 22rem;
     overflow: hidden;
     border-radius: var(--Border-25);
     background: var(--Background-2nd);
     padding: 0.5rem;
+    position: relative;
+}
+img.DefultBg {
+    position: absolute;
+    top: 180px;
+    max-width: 149%;
+    height: 100%;
+    left: -89px;
+    bottom: 0;
+    scale: 5;
+    z-index: 0;
+    filter: blur(1px) brightness(0.7);
 }
 .Gners {
     display: flex;
@@ -311,59 +330,26 @@ p.Plot {
 }
 .Gnrs-Hader{
     display: inline-flex;
-    align-items: center;
+    align-items: baseline;
     justify-content: space-between;
     width: 100%;
-    padding: 0 0.5rem;
+    padding: 0.22rem 0.5rem;
     height: 3rem;
-}
-.Title_Btns{
-    display: inline-flex;
-    align-items: center;
-    justify-content: flex-start;
+    position: relative;
 }
 h5.Gners-Title {
     color: var(--color-white);
     font-family: 'Quicksand';
     margin: 0;
     letter-spacing: 2px;
+    font-size: 1.33rem;
 }
-span.Gnrs-Btns {
-    width: 7rem;
-}
-span.Gnrs-Btns > button.G_Btns {
-    border: none;
-    outline: none;
-    background: no-repeat;
-    color: #ffffff47;
-    font-size: medium;
-    font-weight: bolder;
-    -webkit-text-stroke: thin;
-    transition: .30s linear;
-    padding: 0.2rem;
-}
-span.Gnrs-Btns > button.G_Btns:hover{
-    color: #fff;
-}
-span.Gnrs-Btns > button.G_Btns.G-Left {
-    margin-left: 0.5rem;
-}
-span.Gnrs-Btns > button.G_Btns.G-Right {
-    margin-left: 0.5rem;
-}
-span.Gnrs-Btns > button.G_Btns.G-Left:hover{
-    margin-left: 0.3rem;
-}
-span.Gnrs-Btns > button.G_Btns.G-Right:hover{
-    margin-left: 0.7rem;
-}
-
 button.More {
     border: none;
     outline: none;
     background: none;
     color: #ffffff9c;
-    font-size: 0.88rem;
+    font-size: 0.8rem;
     letter-spacing: 1px;
     transition: all 0.20s ease;
     font-weight: 500;
@@ -374,4 +360,61 @@ button.More > i.bi.bi-chevron-right {
 }
 button.More:hover{
     color: var(--color-white);
+}
+ul.List-Gnres{
+    padding: 0;
+}
+ul.List-Gnres > li{
+    position: relative;
+    width: 100%;
+    height: 4rem;
+    border-radius: 0.25rem;
+    overflow: hidden;
+    margin-bottom: 0.5rem;
+}
+ul.List-Gnres > li.odd > img {
+    max-width: 100%;
+    position: absolute;
+    top: -3rem;
+    bottom: 0;
+}
+p.G-p {
+    position: absolute;
+    top: 0;
+    padding: 0;
+    padding-top: 1.1rem;
+    text-align: center;
+    border: 0;
+    width: 100%;
+    height: 100%;
+    font-size: 1.2rem;
+    letter-spacing: 1px;
+    font-family: 'Quicksand';
+    font-weight: 600;
+    background: rgb(0 0 0 / 62%);
+    transition:  .5s;
+    cursor: pointer;
+}
+p.G-p:hover{
+    letter-spacing: 5px;
+}
+li.even {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+}
+.Even_even {
+    width: 50%;
+    height: 4rem;
+    overflow: hidden;
+    border-radius: 0.25rem;
+    position: relative;
+}
+.Even_even > img {
+    border-radius: 0.25rem;
+    position: absolute;
+    top: -22px;
+    bottom: 0;
+    max-width: 100%;
 }

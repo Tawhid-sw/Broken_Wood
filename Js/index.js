@@ -25,9 +25,8 @@ const Trailer = async (Media_Type , ID) =>{
   const TrailerData = await FetchTraier.json();
   const FilterTrailer = TrailerData.results.filter(video => video.type === 'Trailer' && video.official == true)
   const FinalTrailer = FilterTrailer.slice(FilterTrailer.length - 1)[0];
-  const Youtube = (`${YoutubeUrl}=${FinalTrailer.key}`)
-  //console.log(FetchTraier);
-  WiondowOpen(Youtube)
+  const Youtube = (`${YoutubeUrl}=${FinalTrailer.key}`);
+  WiondowOpen(Youtube);
 }
 const WiondowOpen = (Url) =>{
   window.open(Url, '_blank');
@@ -181,9 +180,26 @@ const Trending = async () =>{
       }
       const Plot = Automate('p' , 'Plot' , Item)
       Plot.textContent = Data.overview.substring(0 , 148) + ' ...';
-      Plot.textContent.length >= 148 ? Plot.style.bottom = '16%' : Plot.style.bottom = '20%';
+      Plot.textContent.length >= 148 ? Plot.style.bottom = '30%' : Plot.style.bottom = '35%';
     //console.log(Data);
     Carousel_Inner.children[0].classList.add('active');
   }
 }
+
+// const SliderButtons = () =>{
+  let Left_Angle = 0;
+  let Right_Angle = 0;
+  const Left  = document.getElementById('Next');
+  const Right = document.getElementById('Prev');
+  Left.onclick = () =>{
+    Left_Angle += 90;
+    Left.children[0].style.transform = `rotate(${Left_Angle}deg)`;
+  }
+  Right.onclick = () =>{
+    Right_Angle -= 90;
+    Right.children[0].style.transform = `rotate(${Right_Angle}deg)`;
+  }
+
+// }
+
 Trending();
