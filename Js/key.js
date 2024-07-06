@@ -1,6 +1,6 @@
 const key = '3e5d5c613b9e5f14199aa9ff665d18d3';
 
-const options = {
+const Keyx = {
     method: 'GET',
     headers: {
       accept: 'application/json',

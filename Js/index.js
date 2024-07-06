@@ -30,7 +30,7 @@ const Automate = (Elements , ClassName , Append) =>{
 const Trailer = async (Media_Type , ID) =>{
   const YoutubeUrl = `https://www.youtube.com/watch?v`;
   const BaseUrl = `https://api.themoviedb.org/3/`;
-  const FetchTraier = await fetch(`${BaseUrl}/${Media_Type}/${ID}/videos?language=en-US` , options);
+  const FetchTraier = await fetch(`${BaseUrl}/${Media_Type}/${ID}/videos?language=en-US` , Keyx);
   const TrailerData = await FetchTraier.json();
   const FilterTrailer = TrailerData.results.filter(video => video.type === 'Trailer' && video.official == true);
   let FinalTrailer;
@@ -59,6 +59,7 @@ const Trailer = async (Media_Type , ID) =>{
 const WiondowOpen = (Url) =>{
   window.open(Url, '_blank');
 }
+
 
 // Rating Color as Value
 const RatingColor = (Class , Value) =>{
@@ -117,13 +118,24 @@ const FetchGner = async (Media_Type , ID) =>{
     return FindNameById.length >= 0 ? FindNameById[0].name : null;
 }
 
+// BackDrop PAth
+const BgDrop = async (Media_Type , ID) =>{
+  const BaseUrl = 'https://api.themoviedb.org/3';
+  try{
+    const FetchBackdrop = await fetch(`${BaseUrl}/${Media_Type}/${ID}/images?api_key=${key}`);
+    const BgImgs = await FetchBackdrop.json();
+    const BgImg = BgImgs.backdrops.filter(Img => Img.iso_639_1 !== null);
+    //console.log(BgImg);
+    return BgImg;
+  }catch{
+    console.log('Error')
+  }
+}
+
 const Trending = async () =>{
   const Trend = await FetchData(`https://api.themoviedb.org/3/trending/all/day?api_key=${key}`)
   for(const Data of Trend.results ){
-    // Backdrop Image collections api
-    const BgImgs = await FetchData(`https://api.themoviedb.org/3/${Data.media_type}/${Data.id}/images?api_key=${key}`);
-    const BgImg = BgImgs.backdrops.filter(Img => Img.iso_639_1 !== null)
-
+    const BImgs = await BgDrop(Data.media_type , Data.id);
     // Creat Element
     // Main Item
     const Carousel_Inner = document.getElementById('Inner');
@@ -133,37 +145,29 @@ const Trending = async () =>{
     //Background Img
     const BackdropImg = document.createElement('img')
      BackdropImg.className = 'BackdropImg';
-     if(BgImg.length == 0){
+     if(BImgs.length == 0){
       BackdropImg.src = `https://image.tmdb.org/t/p/original/${Data.backdrop_path}`
      } else {
-      BackdropImg.src = `https://image.tmdb.org/t/p/original/${BgImg[Math.floor(Math.random() * BgImg.length)].file_path}`
+      BackdropImg.src = `https://image.tmdb.org/t/p/original/${BImgs[Math.floor(Math.random() * BImgs.length)].file_path}`
      }
      // Defult
      // BackdropImg.src = '../images/wallpaperflare.com_wallpaper (3).jpg'
      BackdropImg.alt = BackdropImg.title = Data.title || Data.name;
      Item.appendChild(BackdropImg);
      // Poster And other Details
-     const POster_Info = document.createElement('div');
-     POster_Info.className = 'Poster_Info';
+     const POster_Info = Automate('div' , 'Poster_Info' , Item) ;
      POster_Info.onclick = () =>{
       alert(Data.id)
     }
-     Item.appendChild(POster_Info);
      // POster
-     const Poster = document.createElement('img');
-     Poster.className = 'Poster';
+    const Poster = Automate('img' , 'Poster' , POster_Info);
      Poster.src = `https://image.tmdb.org/t/p/w500/${Data.poster_path}`;
      Poster.alt = Data.title || Data.name;
-     POster_Info.appendChild(Poster);
      // Informations
-     const Info = document.createElement('div');
-     Info.className = 'Info';
-     POster_Info.appendChild(Info);
+     const Info = Automate('div' , 'Info' , POster_Info);
      // Year
-     const Year = document.createElement('p');
-     Year.className = 'Year';
+     const Year = Automate('p' , 'Year' , Info);
      Year.textContent = (Data.release_date || Data.first_air_date).substring(0, 4);
-     Info.appendChild(Year);
      // Title
      const Title = Automate('h2' , 'Title' , Info);
      Title.textContent = Data.title || Data.name;
@@ -206,7 +210,7 @@ const Trending = async () =>{
   }
 }
 
-// const SliderButtons = () =>{
+// cAROUSEL BTNS
   let Left_Angle = 0;
   let Right_Angle = 0;
   const Left  = document.getElementById('Next');
@@ -220,6 +224,33 @@ const Trending = async () =>{
     Right.children[0].style.transform = `rotate(${Right_Angle}deg)`;
   }
 
-// }
-
 Trending();
+
+// oWL CAROUSEL JS
+const OwlCarouselz = (ClassName) =>{
+  var owl = $(`.${ClassName}`);
+  owl.owlCarousel({
+    items:6,
+    loop:true,
+    margin:10,
+    autoplay:true,
+    autoplayTimeout:1000,
+    autoplayHoverPause:true
+  });
+  $(document).ready(function(){
+  $(`.${ClassName}`).owlCarousel();
+  });
+}
+
+const Carouselz = async () =>{
+  const CarouselBox = document.getElementById('owlC_Movie');
+  const FetchApi = await fetch(`https://api.themoviedb.org/3/trending/movie/day?language=en-US` , Keyx).then( Response => Response.json() ).then( Resp => {
+    return Resp;
+  });
+  for(const Data of FetchApi.results){
+    const C_Item = Automate('div' , 'C_Item' , CarouselBox)
+    //const C_Item_Img = Automate('img' , 'C_Item_Img' , C_Item);
+    console.log(Data);
+  }
+}
+Carouselz();
