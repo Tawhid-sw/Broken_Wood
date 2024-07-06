@@ -49,7 +49,6 @@ const Trailer = async (Media_Type , ID) =>{
     }
     Ntf_Btn.textContent = 'Go Back';
     document.body.appendChild(Ntf);
-    console.log(Ntf);
   } else {
     FinalTrailer = FilterTrailer.slice(FilterTrailer.length - 1)[0];
     const Youtube = (`${YoutubeUrl}=${FinalTrailer.key}`);
@@ -228,7 +227,7 @@ Trending();
 
 // oWL CAROUSEL JS
 const OwlCarouselz = (ClassName) =>{
-  var owl = $(`.${ClassName}`);
+  var owl = $(ClassName);
   owl.owlCarousel({
     items:6,
     loop:true,
@@ -237,20 +236,24 @@ const OwlCarouselz = (ClassName) =>{
     autoplayTimeout:1000,
     autoplayHoverPause:true
   });
-  $(document).ready(function(){
-  $(`.${ClassName}`).owlCarousel();
-  });
 }
-
+OwlCarouselz('#owlC_Movie')
 const Carouselz = async () =>{
   const CarouselBox = document.getElementById('owlC_Movie');
   const FetchApi = await fetch(`https://api.themoviedb.org/3/trending/movie/day?language=en-US` , Keyx).then( Response => Response.json() ).then( Resp => {
     return Resp;
   });
   for(const Data of FetchApi.results){
-    const C_Item = Automate('div' , 'C_Item' , CarouselBox)
-    //const C_Item_Img = Automate('img' , 'C_Item_Img' , C_Item);
-    console.log(Data);
+    const C_Item = Automate('div' , 'item' , CarouselBox);
+    const Bimg = await BgDrop(Data.media_type , Data.id);
+    const BImgFilter = Bimg.filter(imageEng => imageEng.iso_639_1 === "en");
+    const C_Item_Img = Automate('img' , 'C_Item_Img' , C_Item);
+    if(BImgFilter.length == 0){
+      C_Item_Img.src = `https://image.tmdb.org/t/p/original/${Data.backdrop_path}`;
+    } else {
+      C_Item_Img.src = `https://image.tmdb.org/t/p/original/${BImgFilter[0].file_path}`;
+    }
+    console.log();
   }
 }
 Carouselz();
