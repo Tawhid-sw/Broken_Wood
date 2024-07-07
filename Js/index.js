@@ -225,21 +225,30 @@ const Trending = async () =>{
 
 Trending();
 
-// oWL CAROUSEL JS
-const OwlCarouselz = (ClassName) =>{
-  var owl = $(ClassName);
-  owl.owlCarousel({
-    items:6,
-    loop:true,
-    margin:10,
-    autoplay:true,
-    autoplayTimeout:1000,
-    autoplayHoverPause:true
-  });
+const TnySlider = (Name) =>{
+  var slider = tns({
+    container: Name,
+    "items": 3,
+    "speed": 300,
+    "autoplay": true,
+    "autoplayHoverPause": true,
+    "autoplayTimeout": 3500,
+    "mouseDrag": true,
+    "slideBy": "page",
+    "responsive": {
+      "350": {
+        "items": 2
+      },
+      "500": {
+        "items": 3
+      }
+    },
+    "swipeAngle": false,
+  })
 }
-OwlCarouselz('#owlC_Movie')
+
 const Carouselz = async () =>{
-  const CarouselBox = document.getElementById('owlC_Movie');
+  const CarouselBox = document.getElementById('Sliders_Movie');
   const FetchApi = await fetch(`https://api.themoviedb.org/3/trending/movie/day?language=en-US` , Keyx).then( Response => Response.json() ).then( Resp => {
     return Resp;
   });
@@ -255,5 +264,6 @@ const Carouselz = async () =>{
     }
     console.log();
   }
+  TnySlider('#Sliders_Movie');
 }
 Carouselz();

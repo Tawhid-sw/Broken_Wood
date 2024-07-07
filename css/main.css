@@ -528,3 +528,16 @@ div#Owl-CArousel-box {
     width: 100%;
     overflow: hidden;
 }
+.tns-outer button{
+    display: none;
+}
+.tns-controls{
+    display: none;
+}
+.tns-nav{
+    display: none;
+}
+#Sliders_Movie > .item{
+    width: 5rem;
+    height: 5rem;
+}
