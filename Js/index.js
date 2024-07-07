@@ -225,28 +225,16 @@ const Trending = async () =>{
 
 Trending();
 
-const TnySlider = (Name) =>{
-  var slider = tns({
-    container: Name,
-    "autoWidth": true,
-    "autoHeight": true,
-    "items": 1,
-    "speed": 400,
-    "autoplay": true,
-    "autoplayHoverPause": true,
-    "autoplayTimeout": 3500,
-    "mouseDrag": true,
-    "slideBy": "page",
-    // "responsive": {
-    //   "350": {
-    //     "items": 5
-    //   },
-    //   "500": {
-    //     "items": 10
-    //   }
-    // },
-    "swipeAngle": false,
-  })
+const SlickCarousel = (Name) =>{
+  // $(Name).slick({
+  //   dots: false,
+  //   infinite: true,
+  //   speed: 300,
+  //   slidesToScroll: 1,
+  //   variableWidth: true,
+  //   autoplay: true,
+  //   autoplaySpeed: 2000,
+  // });
 }
 
 const Carouselz = async () =>{
@@ -255,7 +243,7 @@ const Carouselz = async () =>{
     return Resp;
   });
   for(const Data of FetchApi.results){
-    const C_Item = Automate('div' , 'item' , CarouselBox);
+    const C_Item = Automate('div' , 'itemz' , CarouselBox);
     const Bimg = await BgDrop(Data.media_type , Data.id);
     const BImgFilter = Bimg.filter(imageEng => imageEng.iso_639_1 === "en");
     const C_Item_Img = Automate('img' , 'C_Item_Img' , C_Item);
@@ -266,6 +254,6 @@ const Carouselz = async () =>{
     }
     console.log();
   }
-  TnySlider('#Sliders_Movie');
+  SlickCarousel('#Sliders_Movie')
 }
 Carouselz();
