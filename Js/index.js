@@ -228,21 +228,23 @@ Trending();
 const TnySlider = (Name) =>{
   var slider = tns({
     container: Name,
-    "items": 3,
-    "speed": 300,
+    "autoWidth": true,
+    "autoHeight": true,
+    "items": 1,
+    "speed": 400,
     "autoplay": true,
     "autoplayHoverPause": true,
     "autoplayTimeout": 3500,
     "mouseDrag": true,
     "slideBy": "page",
-    "responsive": {
-      "350": {
-        "items": 2
-      },
-      "500": {
-        "items": 3
-      }
-    },
+    // "responsive": {
+    //   "350": {
+    //     "items": 5
+    //   },
+    //   "500": {
+    //     "items": 10
+    //   }
+    // },
     "swipeAngle": false,
   })
 }
